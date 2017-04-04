@@ -177,3 +177,164 @@ function fibonacci(n) {
 }
 console.log(fibonacci(7));
 console.log(count);
+
+
+// *********************
+// *********************
+
+//  ITERATIVE FUNCTIONS
+
+// *********************
+
+
+// Counting Sheep
+let count = 0;
+function countSheepLoop(num){
+    for(let i=num; i>0; i--){
+        count++;
+        console.log(`counting sheeps ${i}`);
+    }
+}
+countSheepLoop(10);
+
+// O(n) - Linear time
+// number of operations is proportional to the input integer
+
+// *********************
+// Array Double
+let count = 0;
+function double_all(arr) {
+    var ret = Array(arr.length);
+    for (var i = 0; i < arr.length; ++i) {
+          count ++;
+        ret[i] = arr[i] * 2;
+    }
+
+    console.log( count + " inside" );
+    return ret;
+}
+console.log( count + " outside" );
+let arr = [10,4,5,2,1];
+console.log(double_all(arr));
+
+// O(n) - Linear time (Just like the recursive one)
+// number of operations is proportional to the number of array elements
+
+// **********************
+
+// Reverse String
+
+let count = 0;
+function reverse_tail(str) {
+    var accumulator = "";
+    while (str !== "") {
+    	accumulator = str[0] + accumulator;
+    	str = str.slice(1);
+      count ++;
+    }
+    return accumulator;
+}
+console.log(reverse_tail("tauhida"));
+console.log(count);
+
+// O(n) - Linear too.
+// number of operations is proportional to the number of chars in the string.
+
+// **********************
+
+// Triangular Number
+let count = 0;
+function triangle(n) {
+   var tot = 0;
+   for (var i = 1; i <= n; ++i) {
+     count ++;
+     tot += n;
+   }
+   return tot;
+}
+
+triangle(6);
+console.log(count);
+
+// O(n) - Linear time
+// number of operations is the same as the input #
+
+// *********************
+
+// String Splitter
+function split(str, sep) {
+    var ret = [];
+    while (true) {
+      count ++;
+        var idx = str.indexOf(sep);
+        if (idx == -1) break;
+	ret.push(str.slice(0, idx))
+	str = str.slice(idx + sep.length);
+    }
+    ret.push(str);
+    return ret;
+}
+
+
+console.log(split('1/12/2017', '/'));
+console.log(count);
+
+// O(n) - Linear time - although not a direct, one to one relationship. T
+// the operations 'curve' is slightly steeper than the increase in input.
+
+// ********************
+
+// Binary Representation
+let count = 0;
+function convertToBinaryIter(num){
+    var binary = '';
+    while(num>0){
+        let rem = Math.floor(num%2);
+        binary = rem + binary;
+        num = Math.floor(num/2);
+        count ++;
+    }
+    return binary;
+}
+console.log(convertToBinary(25));
+console.log(count);
+
+// O(log(n)) - Logarithmic time - exact results as recursive
+
+// *********************
+
+
+// Factorial
+let count = 0;
+function factorialIterative(number)
+{
+   let fact = 1;
+   for (let i = 1; i <= number; i++){
+       fact *= i;
+   }
+   return fact;
+}
+console.log(factorialIterative(5));
+console.log(count);
+
+// O(n) - Linear time - exact results as recursive
+// number of operations is proportional to the input integer
+
+// *********************
+
+// Fibonacci
+let count = 0;
+function fibonacciIterative2(number){
+    let [num1, num2] = [1,0];
+    while(number-- > 0){
+        count ++;
+        [num1, num2] = [num2+num1, num1]
+    }
+    return num2;
+
+}
+console.log(fibonacciIterative2(3));
+console.log(count);
+
+// O(n) - Linear time! Very different(and better) results than recursive. 
+
